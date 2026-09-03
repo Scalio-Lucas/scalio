@@ -4,10 +4,12 @@ export function VideoTestimonial({
   src,
   name,
   role,
+  orientation = "vertical",
 }: {
   src: string;
   name?: string;
   role?: string;
+  orientation?: "vertical" | "horizontal";
 }) {
   const [playing, setPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -17,13 +19,21 @@ export function VideoTestimonial({
     requestAnimationFrame(() => videoRef.current?.play());
   };
 
+  const isVertical = orientation === "vertical";
+
   return (
-    <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl glass-strong shadow-[0_0_60px_-25px_oklch(0.62_0.24_264/0.8)]">
+    <div
+      className={`relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl glass-strong shadow-[0_0_60px_-25px_oklch(0.62_0.24_264/0.8)] ${
+        isVertical ? "md:mx-0 md:w-[240px]" : "md:mx-0 md:w-[620px] md:max-w-none"
+      }`}
+    >
       <span className="absolute left-4 top-4 z-10 rounded-full glass px-3 py-1 text-[10px] font-medium uppercase tracking-widest text-electric-bright">
         Feedback de Cliente
       </span>
 
-      <div className="relative aspect-[9/16] w-full bg-surface-1">
+      <div
+        className={`relative w-full bg-surface-1 ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}
+      >
         <video
           ref={videoRef}
           src={src}

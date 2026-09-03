@@ -7,7 +7,6 @@ import { Funnel } from "@/components/landing/Funnel";
 import { Turn } from "@/components/landing/Turn";
 import { Method } from "@/components/landing/Method";
 import { CaseHighlight } from "@/components/landing/CaseHighlight";
-import { Cases } from "@/components/landing/Cases";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { Benefits } from "@/components/landing/Benefits";
 import { BrazilMap } from "@/components/landing/BrazilMap";
@@ -34,7 +33,6 @@ export default function Index() {
           <Method />
         </section>
         <CaseHighlight />
-        <Cases />
         <Testimonials />
         <Benefits />
         <BrazilMap />
