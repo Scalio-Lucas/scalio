@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [, setIsActive] = useState(false);
+  // O selo giratório é "hidden md:block" (nunca aparece no mobile). Em vez de só
+  // escondê-lo com CSS, evitamos montar o WebGL do PulsingBorder no mobile —
+  // mesmo resultado visual, sem o custo de inicialização na thread principal.
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const handleMouseEnter = () => setIsActive(true);
@@ -21,6 +25,14 @@ export function Hero() {
         container.removeEventListener("mouseleave", handleMouseLeave);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   return (
@@ -137,7 +149,7 @@ export function Hero() {
           className="mt-9 flex flex-col items-start gap-4"
         >
           <a
-            href="https://wa.me/553173524168"
+            href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-electric px-6 py-3 text-sm font-medium text-primary-foreground glow-electric transition-all hover:shadow-[0_0_50px_0_oklch(0.62_0.24_264/0.8)]"
           >
             <span className="relative z-10">Quero Esse Resultado na Minha Imobiliária</span>
@@ -160,49 +172,51 @@ export function Hero() {
         </motion.div>
       </main>
 
-      {/* Pulsing border with rotating text — bottom-right */}
-      <div className="absolute bottom-8 right-8 z-30 hidden md:block">
-        <div className="relative h-20 w-20 flex items-center justify-center">
-          <PulsingBorder
-            colors={["#4f46e5", "#7dd3fc", "#a78bfa", "#22d3ee", "#3b82f6", "#60a5fa", "#818cf8"]}
-            colorBack="#00000000"
-            speed={1.5}
-            roundness={1}
-            thickness={0.1}
-            softness={0.2}
-            intensity={5}
-            spotSize={0.1}
-            pulse={0.1}
-            smoke={0.5}
-            smokeSize={4}
-            scale={0.65}
-            rotation={0}
-            frame={9161408.251009725}
-            style={{
-              width: "80px",
-              height: "80px",
-              borderRadius: "50%",
-            }}
-          />
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-            <defs>
-              <path id="circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
-            </defs>
-            <text className="text-[6px] fill-foreground/80 font-display tracking-[0.3em] uppercase">
-              <textPath href="#circle" startOffset="0%">
-                Scalio • IA • CRM • Tráfego • Scalio • IA • CRM • Tráfego •
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  values="0 50 50;360 50 50"
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </textPath>
-            </text>
-          </svg>
+      {/* Pulsing border with rotating text — bottom-right (desktop only, not just hidden: not mounted) */}
+      {isDesktop && (
+        <div className="absolute bottom-8 right-8 z-30 hidden md:block">
+          <div className="relative h-20 w-20 flex items-center justify-center">
+            <PulsingBorder
+              colors={["#4f46e5", "#7dd3fc", "#a78bfa", "#22d3ee", "#3b82f6", "#60a5fa", "#818cf8"]}
+              colorBack="#00000000"
+              speed={1.5}
+              roundness={1}
+              thickness={0.1}
+              softness={0.2}
+              intensity={5}
+              spotSize={0.1}
+              pulse={0.1}
+              smoke={0.5}
+              smokeSize={4}
+              scale={0.65}
+              rotation={0}
+              frame={9161408.251009725}
+              style={{
+                width: "80px",
+                height: "80px",
+                borderRadius: "50%",
+              }}
+            />
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+              <defs>
+                <path id="circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
+              </defs>
+              <text className="text-[6px] fill-foreground/80 font-display tracking-[0.3em] uppercase">
+                <textPath href="#circle" startOffset="0%">
+                  Scalio • IA • CRM • Tráfego • Scalio • IA • CRM • Tráfego •
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    values="0 50 50;360 50 50"
+                    dur="20s"
+                    repeatCount="indefinite"
+                  />
+                </textPath>
+              </text>
+            </svg>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

@@ -35,7 +35,7 @@ export function Exclusivity() {
 
       <Reveal delay={0.24} className="mt-10 flex justify-center">
         <a
-          href="https://wa.me/553173524168"
+          href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
           className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-electric px-6 py-3 text-sm font-medium text-primary-foreground glow-electric transition-all hover:shadow-[0_0_50px_0_oklch(0.62_0.24_264/0.8)]"
         >
           <span className="relative z-10">Verificar Disponibilidade da Minha Região</span>

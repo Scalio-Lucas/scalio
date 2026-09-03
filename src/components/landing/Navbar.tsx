@@ -42,7 +42,7 @@ export function Navbar() {
           ))}
         </ul>
         <a
-          href="https://wa.me/553173524168"
+          href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
           className="group relative hidden overflow-hidden rounded-full bg-electric px-4 py-2 text-sm font-medium text-primary-foreground shadow-[0_0_24px_-4px_oklch(0.62_0.24_264/0.7)] transition-all hover:shadow-[0_0_32px_0_oklch(0.62_0.24_264/0.9)] md:inline-flex"
         >
           <span className="relative z-10">Agendar Diagnóstico</span>
@@ -82,7 +82,7 @@ export function Navbar() {
               </li>
             ))}
             <a
-              href="https://wa.me/553173524168"
+              href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
               className="mt-2 rounded-full bg-electric px-4 py-2 text-center text-sm font-medium text-primary-foreground"
             >
               Agendar Diagnóstico
