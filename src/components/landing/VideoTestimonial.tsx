@@ -1,24 +1,17 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export function VideoTestimonial({
-  src,
+  youtubeId,
   name,
   role,
   orientation = "vertical",
 }: {
-  src: string;
+  youtubeId: string;
   name?: string;
   role?: string;
   orientation?: "vertical" | "horizontal";
 }) {
   const [playing, setPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = () => {
-    setPlaying(true);
-    requestAnimationFrame(() => videoRef.current?.play());
-  };
-
   const isVertical = orientation === "vertical";
 
   return (
@@ -34,31 +27,36 @@ export function VideoTestimonial({
       <div
         className={`relative w-full bg-surface-1 ${isVertical ? "aspect-[9/16]" : "aspect-video"}`}
       >
-        <video
-          ref={videoRef}
-          src={src}
-          preload="metadata"
-          playsInline
-          controls={playing}
-          onPause={() => setPlaying(false)}
-          className="h-full w-full object-cover"
-        >
-          Seu navegador não suporta reprodução de vídeo.
-        </video>
-
-        {!playing && (
-          <button
-            type="button"
-            onClick={handlePlay}
-            aria-label="Reproduzir vídeo"
-            className="group absolute inset-0 flex items-center justify-center bg-black/25 transition-colors hover:bg-black/35"
-          >
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-electric text-primary-foreground shadow-[0_0_40px_0_oklch(0.62_0.24_264/0.8)] transition-transform group-hover:scale-105">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </button>
+        {playing ? (
+          <iframe
+            className="h-full w-full"
+            src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&playsinline=1`}
+            title={name ? `Feedback de ${name}` : "Feedback de cliente"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+          />
+        ) : (
+          <>
+            <img
+              src={`https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`}
+              alt={name ? `Prévia do vídeo de ${name}` : "Prévia do vídeo"}
+              loading="lazy"
+              className="h-full w-full object-cover"
+            />
+            <button
+              type="button"
+              onClick={() => setPlaying(true)}
+              aria-label="Reproduzir vídeo"
+              className="group absolute inset-0 flex items-center justify-center bg-black/25 transition-colors hover:bg-black/35"
+            >
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-electric text-primary-foreground shadow-[0_0_40px_0_oklch(0.62_0.24_264/0.8)] transition-transform group-hover:scale-105">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </button>
+          </>
         )}
       </div>
 

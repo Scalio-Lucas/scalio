@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,17 +74,17 @@ export function Hero() {
       {/* Main content */}
       <main className="relative z-20 flex min-h-screen flex-col items-start justify-center px-6 py-28 text-left">
         {/* Eyebrow */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="inline-block rounded-full glass px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-muted-foreground"
         >
           Exclusivo para Imobiliárias
-        </motion.p>
+        </m.p>
 
         {/* Headline */}
-        <motion.h1
+        <m.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
@@ -95,20 +95,20 @@ export function Hero() {
           <span className="text-electric-gradient">Venda </span>
           <span className="text-gradient">Agendadas Para Seus Corretores em </span>
           <span className="text-electric-gradient">45 Dias.</span>
-        </motion.h1>
+        </m.h1>
 
         {/* Subhead */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-6 max-w-2xl text-base leading-relaxed text-white md:text-lg"
         >
           Se não entregar, a gente trabalha de graça até entregar. Garantido em contrato.
-        </motion.p>
+        </m.p>
 
         {/* Bullets */}
-        <motion.ul
+        <m.ul
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.28 }}
@@ -139,10 +139,10 @@ export function Hero() {
               {b}
             </li>
           ))}
-        </motion.ul>
+        </m.ul>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.36 }}
@@ -169,7 +169,7 @@ export function Hero() {
           <p className="text-xs text-muted-foreground">
             Atendemos apenas 1 imobiliária por região. Verifique se a sua está disponível.
           </p>
-        </motion.div>
+        </m.div>
       </main>
 
       {/* Pulsing border with rotating text — bottom-right (desktop only, not just hidden: not mounted) */}

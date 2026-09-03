@@ -4,13 +4,13 @@ import { VideoTestimonial } from "./VideoTestimonial";
 
 const videos = [
   {
-    src: "/videos/horizonte-house-paulo.mp4",
+    youtubeId: "9z2Zk4C4DH8",
     name: "Paulo",
     role: "Sócio-proprietário · Horizonte House",
     orientation: "vertical" as const,
   },
   {
-    src: "/videos/vinicius.mp4",
+    youtubeId: "54_6IfNJLos",
     name: "Vinícius",
     // TODO: adicionar cargo/empresa do Vinícius assim que confirmado.
     role: undefined as string | undefined,
@@ -29,8 +29,13 @@ export function Testimonials() {
 
       <div className="mx-auto mt-14 flex max-w-5xl flex-col items-center gap-8 md:flex-row md:items-center md:justify-center md:gap-6">
         {videos.map((v, i) => (
-          <Reveal key={v.src} delay={i * 0.1}>
-            <VideoTestimonial src={v.src} name={v.name} role={v.role} orientation={v.orientation} />
+          <Reveal key={v.youtubeId} delay={i * 0.1}>
+            <VideoTestimonial
+              youtubeId={v.youtubeId}
+              name={v.name}
+              role={v.role}
+              orientation={v.orientation}
+            />
           </Reveal>
         ))}
       </div>
