@@ -2,6 +2,25 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Fontes auto-hospedadas (só o subset latin, que cobre o português) —
+   evita a cadeia de requisições HTML → CSS do Google Fonts → arquivo da
+   fonte, que bloqueava a renderização inicial. Mesmos arquivos que o
+   Google Fonts já servia (fonte variável cobrindo 400–600). */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
