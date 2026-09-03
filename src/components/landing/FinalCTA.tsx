@@ -23,7 +23,7 @@ export function FinalCTA() {
               imobiliária.
             </p>
             <a
-              href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
+              href="https://lp.digitalscalio.com/forms"
               className="group relative mt-10 inline-flex items-center gap-2 overflow-hidden rounded-full bg-electric px-7 py-4 text-sm font-medium text-primary-foreground glow-electric transition-all hover:shadow-[0_0_60px_0_oklch(0.62_0.24_264/0.9)]"
             >
               <span className="relative z-10">Quero Esse Resultado na Minha Imobiliária</span>

@@ -149,7 +149,7 @@ export function Hero() {
           className="mt-9 flex flex-col items-start gap-4"
         >
           <a
-            href="https://api.digitalscalio.com/widget/survey/kt8PbJZlArngWcGfmAMi"
+            href="https://lp.digitalscalio.com/forms"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-electric px-6 py-3 text-sm font-medium text-primary-foreground glow-electric transition-all hover:shadow-[0_0_50px_0_oklch(0.62_0.24_264/0.8)]"
           >
             <span className="relative z-10">Quero Esse Resultado na Minha Imobiliária</span>
