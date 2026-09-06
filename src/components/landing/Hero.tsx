@@ -90,11 +90,10 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="mt-5 max-w-4xl text-balance font-display text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-6xl"
         >
-          <span className="text-electric-gradient">R$15 Milhões </span>
-          <span className="text-gradient">em Oportunidades Reais de </span>
-          <span className="text-electric-gradient">Venda </span>
-          <span className="text-gradient">Agendadas Para Seus Corretores em </span>
-          <span className="text-electric-gradient">45 Dias.</span>
+          <span className="text-gradient">
+            Seus leads estão morrendo entre o clique e a visita.{" "}
+          </span>
+          <span className="text-electric-gradient">A gente resolve esse intervalo.</span>
         </m.h1>
 
         {/* Subhead */}
@@ -104,7 +103,8 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-6 max-w-2xl text-base leading-relaxed text-white md:text-lg"
         >
-          Se não entregar, a gente trabalha de graça até entregar. Garantido em contrato.
+          Imobiliárias parceiras saíram de 20 pra 50 visitas qualificadas por mês — com metade dos
+          leads e a mesma equipe. Descubra se o mesmo processo funciona na sua operação.
         </m.p>
 
         {/* Bullets */}
@@ -115,10 +115,9 @@ export function Hero() {
           className="mt-6 flex max-w-2xl flex-col gap-2.5"
         >
           {[
-            "Compradores qualificados, não leads curiosos",
-            "Atendimento e pré-qualificação em minutos, 24/7",
-            "Visitas qualificadas prontas na agenda dos seus corretores",
-            "Exclusividade: 1 imobiliária por região",
+            "Entenda onde os seus leads estão vazando — com os seus números",
+            "Veja como a pré-qualificação com IA muda o jogo antes do corretor",
+            "Descubra se a sua região está disponível para exclusividade",
           ].map((b) => (
             <li
               key={b}
@@ -152,7 +151,7 @@ export function Hero() {
             href="https://lp.digitalscalio.com/forms"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-electric px-6 py-3 text-sm font-medium text-primary-foreground glow-electric transition-all hover:shadow-[0_0_50px_0_oklch(0.62_0.24_264/0.8)]"
           >
-            <span className="relative z-10">Quero Esse Resultado na Minha Imobiliária</span>
+            <span className="relative z-10">Quero Entender Como Funciona na Minha Imobiliária</span>
             <svg
               className="relative z-10 transition-transform group-hover:translate-x-0.5"
               width="16"
@@ -167,7 +166,7 @@ export function Hero() {
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
           </a>
           <p className="text-xs text-muted-foreground">
-            Atendemos apenas 1 imobiliária por região. Verifique se a sua está disponível.
+            Atendemos 1 imobiliária por região. Verifique se a sua está disponível.
           </p>
         </m.div>
       </main>
